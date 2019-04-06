@@ -11,7 +11,7 @@ public class Author extends AbstractNamedEntity{
 
     public Author(){}
 
-    public Author( String ID, String Name, LocalDate birthDate, String email, String phone, String address){
+    public Author( Long ID, String Name, LocalDate birthDate, String email, String phone, String address){
         super( ID, Name);
         this.birthDate = birthDate;
         this.email     = email;
@@ -49,5 +49,17 @@ public class Author extends AbstractNamedEntity{
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "id=" + getID() +
+                ", name='" + getName() + '\'' +
+                ", birthDate=" + birthDate +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                '}';
     }
 }

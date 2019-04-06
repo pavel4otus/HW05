@@ -1,22 +1,22 @@
 package ru.pavel2107.otus.hw05.domain;
 
-public class AbstractNamedEntity {
-    private String ID;
+public abstract class AbstractNamedEntity {
+    private Long ID;
     private String Name;
 
     public AbstractNamedEntity(){}
 
 
-    public AbstractNamedEntity(String ID, String name){
+    public AbstractNamedEntity(Long ID, String name){
         this.ID = ID;
         this.Name = name;
     }
 
-    public String getID() {
+    public Long getID() {
         return ID;
     }
 
-    public void setID(String ID) {
+    public void setID(Long ID) {
         this.ID = ID;
     }
 

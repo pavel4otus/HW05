@@ -10,6 +10,7 @@ import ru.pavel2107.otus.hw05.domain.Author;
 import ru.pavel2107.otus.hw05.repository.AuthorRepository;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,22 +18,22 @@ import static org.junit.jupiter.api.Assertions.*;
         InteractiveShellApplicationRunner.SPRING_SHELL_INTERACTIVE_ENABLED + "=false",
         ScriptShellApplicationRunner.SPRING_SHELL_SCRIPT_ENABLED + "=false"
 })
-@DisplayName( "Репка")
+@DisplayName( "Репозиторий авторов")
 class JdbcAuthorRepositoryImplTest {
 
     @Autowired
     AuthorRepository repository;
 
-
     @Test
     void save() {
-        /*
-    public Author( String ID, String Name, LocalDate birthDate, String email, String phone, String address){
-
-         */
-        Author author = new Author( null, "pavel", LocalDate.of( 1990, 12, 9), "test@mail.ru", "77727272", "no info");
-        Author saved  = repository.save( author);
-        assertEquals( author.getName(), author.getName());
+        Author author = new Author();
+        author.setBirthDate(LocalDate.now());
+        author.setName( "test");
+        author.setPhone( "123");
+        author.setEmail("a@test.ru");
+        author.setAddress( "qq");
+        author = repository.save( author);
+        assertEquals( "test", author.getName());
     }
 
     @Test
@@ -41,6 +42,8 @@ class JdbcAuthorRepositoryImplTest {
 
     @Test
     void get() {
+        Author author = repository.get(1L);
+        assertEquals( 1L, author.getID().longValue());
     }
 
     @Test
@@ -49,5 +52,7 @@ class JdbcAuthorRepositoryImplTest {
 
     @Test
     void getAll() {
+        List<Author> list = repository.getAll();
+        assertNotEquals( 0L, list.size());
     }
 }

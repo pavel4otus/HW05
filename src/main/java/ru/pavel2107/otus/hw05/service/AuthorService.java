@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface AuthorService {
     Author save(Author author);
-    boolean delete( String ID);
-    Author get( String ID);
+    boolean delete( Long ID);
+    Author get( Long ID);
     List<Author> getByName(String name);
     List<Author> getAll();
 }

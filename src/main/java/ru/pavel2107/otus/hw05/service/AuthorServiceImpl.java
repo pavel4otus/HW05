@@ -1,11 +1,13 @@
 package ru.pavel2107.otus.hw05.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ru.pavel2107.otus.hw05.domain.Author;
 import ru.pavel2107.otus.hw05.repository.AuthorRepository;
 
 import java.util.List;
 
+@Service
 public class AuthorServiceImpl implements AuthorService {
 
     private AuthorRepository repository;
@@ -22,12 +24,12 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public boolean delete(String ID) {
+    public boolean delete(Long ID) {
         return repository.delete( ID);
     }
 
     @Override
-    public Author get(String ID) {
+    public Author get(Long ID) {
         return repository.get( ID);
     }
 

@@ -1,1 +1,0 @@
-insert into authors( id, a_name, birthdate, email, phone, address) values('99', 'test', '1990-12-12', 'test@mail.ru', '79121212', 'no info');
