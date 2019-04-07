@@ -2,11 +2,11 @@ package ru.pavel2107.otus.hw05.repository.jdbc;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.shell.jline.InteractiveShellApplicationRunner;
-import org.springframework.shell.jline.ScriptShellApplicationRunner;
-import ru.CryptoPro.JCP.tools.B;
+import org.springframework.boot.test.autoconfigure.jdbc.JdbcTest;
+import org.springframework.context.annotation.Import;
+import org.springframework.test.context.junit4.SpringRunner;
 import ru.pavel2107.otus.hw05.domain.Author;
 import ru.pavel2107.otus.hw05.domain.Book;
 import ru.pavel2107.otus.hw05.domain.Genre;
@@ -18,28 +18,23 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest(properties = {
-        InteractiveShellApplicationRunner.SPRING_SHELL_INTERACTIVE_ENABLED + "=false",
-        ScriptShellApplicationRunner.SPRING_SHELL_SCRIPT_ENABLED + "=false"
-})
+@RunWith(SpringRunner.class)
+@JdbcTest
+@Import({ JdbcBookRepositoryImpl.class, JdbcGenreRepositoryImpl.class, JdbcAuthorRepositoryImpl.class})
 @DisplayName( "Репозиторий книг")
 class JdbcBookRepositoryImplTest {
 
     @Autowired
     BookRepository repository;
 
-    @Autowired
-    GenreRepository genreRepository;
-
-    @Autowired
-    AuthorRepository authorRepository;
-
-
     @Test
     void save() {
 
-        Genre  genre  = genreRepository.get(1L);
-        Author author = authorRepository.get(1L);
+        Genre  genre  = new Genre();
+        genre.setID( 1L);
+
+        Author author = new Author();
+        author.setID( 1L);
 
         Book book = new Book();
         book.setName( "test");
@@ -56,8 +51,11 @@ class JdbcBookRepositoryImplTest {
     @Test
     void delete() {
         int oldSize = repository.getAll().size();
-        Genre  genre  = genreRepository.get(1L);
-        Author author = authorRepository.get(1L);
+        Genre  genre  = new Genre();
+        genre.setID( 1L);
+
+        Author author = new Author();
+        author.setID( 1L);
 
         Book book = new Book();
         book.setName( "test");

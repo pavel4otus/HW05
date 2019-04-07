@@ -12,7 +12,6 @@ public class AuthorServiceImpl implements AuthorService {
 
     private AuthorRepository repository;
 
-
     @Autowired
     public AuthorServiceImpl( AuthorRepository repository){
         this.repository = repository;

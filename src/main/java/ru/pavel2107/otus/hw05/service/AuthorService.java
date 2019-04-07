@@ -8,6 +8,6 @@ public interface AuthorService {
     Author save(Author author);
     boolean delete( Long ID);
     Author get( Long ID);
-    List<Author> getByName(String name);
+    List<Author> getByName( String name);
     List<Author> getAll();
 }

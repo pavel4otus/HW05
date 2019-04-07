@@ -6,7 +6,6 @@ public abstract class AbstractNamedEntity {
 
     public AbstractNamedEntity(){}
 
-
     public AbstractNamedEntity(Long ID, String name){
         this.ID = ID;
         this.Name = name;

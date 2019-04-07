@@ -59,7 +59,6 @@ public class Book extends AbstractNamedEntity{
         this.ISBN = ISBN;
     }
 
-
     @Override
     public String toString() {
         return "Book{" +

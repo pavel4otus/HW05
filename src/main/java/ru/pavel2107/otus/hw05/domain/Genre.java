@@ -6,4 +6,5 @@ public class Genre extends AbstractNamedEntity{
     public String toString() {
         return "Genre{id=" + getID() + ", name='" + getName() + "'}";
     }
+
 }

@@ -8,7 +8,6 @@ public class Author extends AbstractNamedEntity{
     private String    phone;
     private String    address;
 
-
     public Author(){}
 
     public Author( Long ID, String Name, LocalDate birthDate, String email, String phone, String address){

@@ -22,12 +22,12 @@ import static ru.pavel2107.otus.hw05.repository.jdbc.Utils.insertOrUpdate;
 @SuppressWarnings({"SqlNoDataSourceInspection", "ConstantConditions", "SqlDialectInspection"})
 public class JdbcAuthorRepositoryImpl implements AuthorRepository {
 
-   private final String INSERT_QUERY = "insert into authors( name, birthdate, email, phone, address) values( :name, :birthdate, :email, :phone, :address)";
-   private final String UPDATE_QUERY = "update authors set name =:name , birthdate=:birthdate, email=:email, phone=:phone, address=:address where id =:id";
-   private final String DELETE_QUERY = "delete from authors where id=:id";
-   private final String FIND_BY_NAME = "select * from authors where name=:name";
-   private final String FIND_BY_ID   = "select * from authors where id=:id";
-   private final String FIND_ALL     = "select * from authors order by name asc";
+   private static final String INSERT_QUERY = "insert into authors( name, birthdate, email, phone, address) values( :name, :birthdate, :email, :phone, :address)";
+   private static final String UPDATE_QUERY = "update authors set name =:name , birthdate=:birthdate, email=:email, phone=:phone, address=:address where id =:id";
+   private static final String DELETE_QUERY = "delete from authors where id=:id";
+   private static final String FIND_BY_NAME = "select * from authors where name=:name";
+   private static final String FIND_BY_ID   = "select * from authors where id=:id";
+   private static final String FIND_ALL     = "select * from authors order by name asc";
 
    private NamedParameterJdbcTemplate jdbcTemplate;
 
